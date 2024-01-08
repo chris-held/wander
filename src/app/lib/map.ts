@@ -60,6 +60,9 @@ const getWalkingDirections = async (
   // then return the directions for that route as a series of waypoints that can
   // be plotted on a map. May need to change what gets returned here, maybe just return the whole
   // route object9
+  if (json.status !== "OK") {
+    console.log(`Google Maps Error: ${json.stringify(json, null, 2)} `);
+  }
   console.log(
     `Route distance: ${JSON.stringify(json.routes[0].legs[0].distance)}`
   );
